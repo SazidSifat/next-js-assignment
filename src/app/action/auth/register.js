@@ -1,9 +1,13 @@
 "use server";
 
-import dbConnect from "@/lib/dbConnect";
-export const register = async (payload) => {
+import { dbConnect } from "@/lib/dbConnect";
 
 
-  const result = dbConnect("user-collection").insertOne(payload);
-  return result
+export const registerUser = async (payload) => {
+  try {
+    const result = dbConnect("user-collection").insertOne(payload);
+    return result;
+  } catch (error) {
+    return null;
+  }
 };

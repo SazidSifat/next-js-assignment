@@ -1,21 +1,39 @@
-import { getProductById } from "@/lib/products";
+"use client";
 import Image from "next/image";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export default async function ProductDetailsPage({ params }) {
-  const product = await getProductById(params.id);
+export default  function ProductDetailsPage({ params }) {
 
-  if (!product) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
-        <p className="text-xl text-red-500">Product not found</p>
-      </div>
-    );
-  }
+  const { id } = useParams(); // get id from URL
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const res = await fetch(`/api/products/${id}`);
+        if (!res.ok) throw new Error("Failed to fetch product");
+        const data = await res.json();
+        setProduct(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProduct();
+  }, [id]);
+
+  if (loading) return <p className="text-center mt-10">Loading...</p>;
+  if (error) return <p className="text-center mt-10 text-red-500">{error}</p>;
+  if (!product) return <p className="text-center mt-10">Product not found</p>;
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 px-6 py-12">
       <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden md:flex">
-        
         {/* Product Image */}
         {product.image && (
           <div className="relative w-full h-80 md:h-auto md:w-1/2">

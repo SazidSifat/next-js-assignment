@@ -1,43 +1,68 @@
-import { Truck, Star, Headset } from "lucide-react"; // icons from lucide-react
+"use client";
 
-const highlights = [
-  { id: 1, title: "Fast Delivery", desc: "Get your products in 2-3 days.", icon: <Truck size={36} /> },
-  { id: 2, title: "Best Quality", desc: "We ensure premium quality.", icon: <Star size={36} /> },
-  { id: 3, title: "24/7 Support", desc: "Always here to help you.", icon: <Headset size={36} /> },
-];
+export default function ProductHighlight() {
+  const products = [
+    {
+      id: 1,
+      name: "Smartphone",
+      price: "$499",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfCddtA1b0LgnZ37Nvto8dIhu5vxhIxvxIJw&s",
+    },
+    {
+      id: 2,
+      name: "Laptop",
+      price: "$999",
+      image:
+        "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFwdG9wfGVufDB8fDB8fHww",
+    },
+    {
+      id: 3,
+      name: "Headphones",
+      price: "$149",
+      image:
+        "https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhlYWRwaG9uZXN8ZW58MHx8MHx8fDA%3D",
+    },
+    { id: 4, name: "Smartwatch", price: "$199", image: "https://images.unsplash.com/photo-1617043983671-adaadcaa2460?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNtYXJ0JTIwd2F0Y2h8ZW58MHx8MHx8fDA%3D" },
+    { id: 5, name: "Camera", price: "$799", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRSHT1Z-ZTFz2qG-ItJ2W092_3G7_ZVAwu-Q&s" },
+    {
+      id: 6,
+      name: "Gaming Console",
+      price: "$399",
+      image: "https://images.unsplash.com/photo-1593118247619-e2d6f056869e?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Z2FtaW5nJTIwY29uc29sZXxlbnwwfHwwfHx8MA%3D%3D",
+    },
+  ];
 
-export default function ProductHighlights() {
   return (
-   <section className="bg-gradient-to-r from-blue-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-     <div className="relative py-16 px-6 container mx-auto ">
-      {/* Title */}
-      <h2 className="text-3xl md:text-4xl font-extrabold mb-12 text-center text-gray-900 dark:text-white">
-        Why Choose Us?
-      </h2>
-
-      {/* Highlights Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {highlights.map((item) => (
-          <div
-            key={item.id}
-            className="relative p-8 rounded-2xl bg-white/10 dark:bg-gray-800/40 backdrop-blur-lg border border-gray-200/20 dark:border-gray-700/30 shadow-lg hover:scale-105 hover:shadow-xl transition transform duration-300"
-          >
-            {/* Icon */}
-            <div className="flex justify-center items-center w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-tr from-blue-500 to-indigo-500 text-white shadow-md">
-              {item.icon}
+    <section className="py-12 bg-gray-100 dark:bg-gray-900">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-3xl font-bold text-center mb-10 text-gray-900 dark:text-white">
+          Featured Products
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className="bg-white dark:bg-gray-800 rounded-2xl shadow hover:shadow-lg transition overflow-hidden"
+            >
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-56 object-cover"
+              />
+              <div className="p-5">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  {product.name}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {product.price}
+                </p>
+                
+              </div>
             </div>
-            {/* Title */}
-            <h3 className="text-xl font-semibold text-center text-gray-900 dark:text-white mb-3">
-              {item.title}
-            </h3>
-            {/* Description */}
-            <p className="text-gray-600 dark:text-gray-300 text-center">
-              {item.desc}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-   </section>
+    </section>
   );
 }

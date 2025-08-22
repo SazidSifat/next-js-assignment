@@ -1,9 +1,30 @@
+"use client";
+import { useEffect, useState } from "react";
+import ProductCard from "../Components/ProductCard";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-import { getProducts } from "@/lib/products";
-import ProductCard from "../Components/ProductCard/page";
+export default function Product() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+ 
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const res = await fetch("/api/products");
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Failed to fetch products");
+        setProducts(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
 
-export default async function Product() {
-  const products = await getProducts();
+    fetchProducts();
+  }, []);
 
   return (
     <div className="min-h-screen container mx-auto px-6 py-12 dark:bg-gray-900">
@@ -13,7 +34,7 @@ export default async function Product() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
-         <ProductCard key={product.id} product={product} />
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
     </div>
