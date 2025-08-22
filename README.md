@@ -71,6 +71,7 @@ src/
 │  └─ globals.css
 .env.local
 next.config.js
+````
 
 ## Environment Variables
 
