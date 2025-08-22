@@ -2,12 +2,13 @@
   "name": "scic-next-assignment",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
-    "lint": "eslint"
-  },
+ "scripts": {
+  "dev": "next dev --turbopack", 
+  "build": "next build",       
+  "start": "next start",
+  "lint": "eslint"
+}
+,
   "dependencies": {
     "lucide-react": "^0.540.0",
     "mongodb": "^6.18.0",
