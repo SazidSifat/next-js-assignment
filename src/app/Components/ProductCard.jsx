@@ -5,7 +5,6 @@ export default function ProductCard({ product }) {
   return (
     <Link href={`/product/${product.id}`} className="block">
       <div className="relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transform transition-all duration-300 cursor-pointer overflow-hidden">
-        
         {/* Product Image */}
         {product.image && (
           <div className="relative w-full h-48 md:h-56">
@@ -26,7 +25,9 @@ export default function ProductCard({ product }) {
           <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm md:text-base">
             {product.description}
           </p>
-          <p className="font-semibold text-blue-600 text-lg">${product.price}</p>
+          <p className="font-semibold text-blue-600 text-lg">
+            ${product.price}
+          </p>
         </div>
 
         {/* CTA Button Overlay on Hover */}
