@@ -82,8 +82,11 @@ NEXTAUTH_SECRET=<A strong secret for NextAuth>
 
 ````
 
-```npm install
-npm run dev
+```
+npm install
+```
 
+```
+npm run dev
 
 ```
