@@ -63,18 +63,18 @@ const Navbar = () => {
             <button>
               <Link
                 href="/auth/register"
-                className=" py-3 px-8  bg-blue-500 text-white hover:bg-blue-600 rounded-2xl font-semibold shadow-lg transition"
+                className=" py-3 px-6 hidden lg:block bg-blue-500 text-white hover:bg-blue-600 rounded-2xl font-semibold shadow-lg transition"
               >
                 Registration
               </Link>
             </button>
-            <Link
+            <button
               href=""
               onClick={() => signIn()}
               className=" px-6 py-3 bg-blue-500 text-white hover:bg-blue-600 rounded-2xl font-semibold shadow-lg transition"
             >
               Login
-            </Link>
+            </button>
           </div>
         )}
       </div>

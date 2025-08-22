@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <div className="sticky top-0 z-50 bg-white">  <Navbar /></div>
+          <div className="sticky top-0 z-50 bg-white"> <Navbar /></div>
           <ToastContainer position="top-center" autoClose={3000} theme="dark" />
           <main className="">{children}</main>
           <Footer />

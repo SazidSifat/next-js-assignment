@@ -4,7 +4,7 @@ export default function Hero() {
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('https://plus.unsplash.com/premium_photo-1742902401220-d66e85692581?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
+        style={{ backgroundImage: "url('https://t4.ftcdn.net/jpg/08/52/61/01/360_F_852610192_mDCPHk42G9qHrROdQYx93eHuk5AMFpQQ.jpg')" }}
       />
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/60" />
@@ -12,7 +12,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 max-w-3xl mx-auto text-center px-4">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
-          Welcome to <span className="text-blue-400">MyShop</span>
+          Welcome to <span className="text-blue-400">Smart Tech</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-200 mb-6">
           Discover premium products at unbeatable prices.  

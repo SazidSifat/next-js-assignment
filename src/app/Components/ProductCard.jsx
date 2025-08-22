@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function ProductCard({ product }) {
   return (
-    <Link href={`/product/${product._id}`} className="block">
+    <Link href={`/product/${product._id}`} className="block ">
       <div className="relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transform transition-all duration-300 cursor-pointer overflow-hidden">
         {/* Product Image */}
         {product.image && (
@@ -31,8 +31,8 @@ export default function ProductCard({ product }) {
         </div>
 
         {/* CTA Button Overlay on Hover */}
-        <div className="absolute inset-0 flex items-end justify-center p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
-          <div className="bg-blue-500 text-white px-4 py-2 rounded-xl font-semibold shadow-lg">
+        <div className=" flex items-end justify-center p-4 w-full transition-opacity duration-300">
+          <div className="bg-blue-500 text-white px-4 py-2 w-full text-center rounded-xl font-semibold shadow-lg">
             View Details
           </div>
         </div>
